@@ -7,8 +7,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PeliculaServicio {
+    private static ArrayList<Pelicula> listaPeliculas = new ArrayList<>();
 
-    public Pelicula crearPelicula(){
+    public static Pelicula crearPelicula(){
         Scanner sc = new Scanner(System.in);
         Pelicula peli = new Pelicula();
 
@@ -25,14 +26,19 @@ public class PeliculaServicio {
         System.out.println("Ingrese la duracion de la pelicula: ");
         peli.setDuracion(Float.parseFloat(sc.nextLine()));
 
+        listaPeliculas.add(peli);
         return peli;
     }
 
-    public void buscarPelicula(ArrayList listaPeliculas, String nombre){
+    public static Pelicula buscarPelicula(String nombre){
 
-        for (Object peli: listaPeliculas) {
+        for (Pelicula peli: listaPeliculas) {
 
+            if(peli.getTitulo().equalsIgnoreCase(nombre)){
+                return peli;
+            }
         }
+        return null;
     }
 
 }

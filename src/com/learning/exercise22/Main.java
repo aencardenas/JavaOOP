@@ -13,7 +13,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         PeliculaServicio ps = new PeliculaServicio();
         AlquilerServicio as = new AlquilerServicio();
-        Object pelicula[] = new Object[5];
         ArrayList<Pelicula> listaPeliculas = new ArrayList<>();
 
         int choice = 0;

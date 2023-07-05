@@ -9,7 +9,6 @@ public class Pelicula {
     private String genero;
     private int anio;
     private float duracion;
-    private boolean disponibilidad;
 
     //Constructor vacio
     public Pelicula() {

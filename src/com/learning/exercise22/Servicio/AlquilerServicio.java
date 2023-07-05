@@ -17,7 +17,8 @@ public class AlquilerServicio {
         alquiler.setFechaInicio(fechaActual);
 
         System.out.println("Ingresa el nombre de la pelicula: ");
-        alquiler.setNombre(sc.nextLine());
+        String titulo = sc.nextLine();
+        Pelicula p = PeliculaServicio.buscarPelicula(titulo);
 
         System.out.println("Ingresar anio: ");
         String anio = sc.nextLine();
