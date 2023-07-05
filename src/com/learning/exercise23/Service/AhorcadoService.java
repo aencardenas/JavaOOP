@@ -49,13 +49,13 @@ public class AhorcadoService {
             mostrarPalabra(letrasAdivinadas); //Mostrar la palabra con las letras que iremos adivinando
             System.out.println("");
             String letraUsuario = input.nextLine().toUpperCase();
-            letrasUsadas.add(letraUsuario);
+            letrasUsadas.add(letraUsuario); //Guardar las letras que ha usado el usuario
 
-            boolean estaLetra = buscarLetra(letraUsuario,letrasUsadas);
-            mostrarLetrasUsadas(letrasUsadas);
+            boolean estaLetra = buscarLetra(letraUsuario);
+            mostrarLetrasUsadas(letrasUsadas); //Mostrar las letras que ha usado el usuario
 
             if (estaLetra) {
-                actualizarPalabra(ahorcado,letrasAdivinadas,letraUsuario);
+                actualizarPalabra(letrasAdivinadas,letraUsuario);
                 Ahorcado.letrasEnLaPalabra.remove(letraUsuario);
             } else {
                 vidaActual -= 1;
@@ -84,7 +84,7 @@ public class AhorcadoService {
         }
     }
 
-    private boolean buscarLetra(String letraUsuario, Set<String> letrasUsadas){
+    private boolean buscarLetra(String letraUsuario){
         if (Ahorcado.letrasEnLaPalabra.contains(letraUsuario)){
             System.out.println("Mensaje: La letra pertenece a la palabra");
             return true;
@@ -94,7 +94,7 @@ public class AhorcadoService {
         }
     }
 
-    private void actualizarPalabra(Ahorcado ahorcado, String[] letrasAdivinadas, String letraUsuario){
+    private void actualizarPalabra(String[] letrasAdivinadas, String letraUsuario){
 
         for (int i = 0; i < letrasAdivinadas.length; i++) {
             if (Ahorcado.arrayLetras[i].equalsIgnoreCase(letraUsuario)){
